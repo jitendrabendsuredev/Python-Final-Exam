@@ -12,20 +12,20 @@ h1{margin:0 0 4px;font-size:26px}h2{margin:28px 0 10px;padding:8px 12px;backgrou
 button{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:inherit;cursor:pointer}
 .q{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:8px 0;break-inside:avoid}
 .o{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin-top:6px}
-.o span{padding:2px 6px;border-radius:6px}
+.o label{display:block;padding:3px 6px;border-radius:6px;cursor:pointer}.o label:hover{background:var(--bd)}
 .show .o span.c{background:var(--okbg);color:var(--ok);font-weight:600}
 .key{display:none;margin-top:8px;color:var(--ok);font-size:14px}.show .key{display:block}
 .a{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:8px 0;break-inside:avoid}
 .a b{color:var(--ac)}.a ul{margin:4px 0 0 18px;padding:0}
-.nm{border-bottom:1px solid var(--mut);display:inline-block;min-width:160px}
+.nm{background:transparent;color:inherit;font:inherit;border:0;border-bottom:1px solid var(--mut);display:inline-block;min-width:160px;outline:0}textarea{width:100%;margin-top:8px;background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:8px;font:14px/1.4 ui-monospace,Consolas,monospace}button:disabled{opacity:.5;cursor:default}
 @media(max-width:560px){.o{grid-template-columns:1fr}}
 @media print{.bar{display:none}body{font-size:13px}h2{background:none;color:#000;border:1px solid #000}}
 </style></head><body><div class="w" id="app">
 <h1>Python Test – 100 Marks</h1>
-<div class="meta"><span>Name: <span class="nm"></span></span><span>Roll No: <span class="nm" style="min-width:70px"></span></span><span>Date: <span class="nm" style="min-width:90px"></span></span></div>
+<div class="meta"><label>Name: <input id="sn" class="nm"></label><label>Roll No: <input id="sr" class="nm" style="min-width:70px;width:80px"></label><label>Date: <input id="sd" type="date" class="nm" style="min-width:90px"></label></div>
 <div class="meta"><span>Section A: 100 MCQs × 1 mark = 100</span><span>Section B: 10 practical assignments × 10 marks = 100 (practical round)</span></div>
 <div class="bar"><button onclick="window.print()">Print</button></div>
-<div id="mcq"></div><h2>Section B – Practical Assignments (10 marks each)</h2><div id="asg"></div>
+<div id="mcq"></div><h2>Section B – Practical Assignments (10 marks each)</h2><div id="asg"></div><div class="bar"><button id="sub" onclick="submitTest()">Submit Test</button></div><div id="res"></div>
 </div>
 <script>
 var T=[
@@ -156,8 +156,9 @@ function e(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replac
 var h="",n=0,L="ABCD";
 T.forEach(function(t){h+="<h2>"+e(t[0])+" ("+t[1].length+" marks)</h2>";
 t[1].forEach(function(q){n++;
-h+='<div class="q"><b>Q'+n+'.</b> '+e(q[0])+'<div class="o">'+q[1].map(function(o,i){return '<span>('+L[i]+') '+e(o)+'</span>'}).join("")+'</div></div>'});
+h+='<div class="q"><b>Q'+n+'.</b> '+e(q[0])+'<div class="o">'+q[1].map(function(o,i){return '<label><input type="radio" name="q'+n+'" value="'+i+'"> ('+L[i]+') '+e(o)+'</label>'}).join("")+'</div></div>'});
 });
 document.getElementById("mcq").innerHTML='<h2 style="margin-top:12px">Section A – MCQs (1 mark each)</h2>'+h;
-document.getElementById("asg").innerHTML=A.map(function(a,i){return '<div class="a"><b>Assignment '+(i+1)+': '+a[0]+'</b> <span style="float:right">[10]</span><div>'+e(a[1])+'</div></div>'}).join("");
+document.getElementById("asg").innerHTML=A.map(function(a,i){return '<div class="a"><b>Assignment '+(i+1)+': '+a[0]+'</b> <span style="float:right">[10]</span><div>'+e(a[1])+'</div><textarea rows="6" placeholder="Write your Python code here..."></textarea></div>'}).join("");
+function submitTest(){var nm=document.getElementById("sn").value.trim(),rl=document.getElementById("sr").value.trim();if(!nm){alert("Please enter your name first.");return}var i=0,s=0,na=0,tx="";T.forEach(function(t){var c=0;t[1].forEach(function(q){i++;var r=document.querySelector('input[name="q'+i+'"]:checked');if(!r)na++;else if(+r.value===q[2]){c++;s++}});tx+="<li>"+e(t[0])+": <b>"+c+"/"+t[1].length+"</b></li>"});if(na&&!confirm(na+" questions are not answered. Submit anyway?"))return;document.querySelectorAll("input[type=radio],textarea").forEach(function(x){x.disabled=true});document.getElementById("sub").disabled=true;var r=document.getElementById("res");r.innerHTML='<div class="a"><h3 style="margin:0 0 6px">Result</h3>Name: <b>'+e(nm)+'</b> &nbsp; Roll No: <b>'+e(rl)+'</b><div style="font-size:22px;margin:8px 0">MCQ Score: <b>'+s+' / 100</b></div>Unanswered: '+na+'<ul>'+tx+'</ul><div>Practical assignments will be checked by the teacher.</div><div class="bar"><button onclick="window.print()">Print / Save PDF</button></div></div>';r.scrollIntoView({behavior:"smooth"})}
 </script></body></html>
