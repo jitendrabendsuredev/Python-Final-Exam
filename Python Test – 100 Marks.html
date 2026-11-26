@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Python Test – 100 Marks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#fff;--fg:#1d2433;--mut:#5b6578;--card:#f4f6fb;--bd:#d9deea;--ac:#2b59c3;--ok:#14803c;--okbg:#dcf5e5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171f;--fg:#e8ebf3;--mut:#9aa4b8;--card:#1d222d;--bd:#2f3748;--ac:#7ea2ff;--ok:#6fe39a;--okbg:#17402a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,Segoe UI,Arial,sans-serif}
+.w{max-width:860px;margin:auto;padding:16px}
+h1{margin:0 0 4px;font-size:26px}h2{margin:28px 0 10px;padding:8px 12px;background:var(--ac);color:#fff;border-radius:8px;font-size:18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mut);margin:8px 0}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+button{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:inherit;cursor:pointer}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:8px 0;break-inside:avoid}
+.o{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin-top:6px}
+.o span{padding:2px 6px;border-radius:6px}
+.show .o span.c{background:var(--okbg);color:var(--ok);font-weight:600}
+.key{display:none;margin-top:8px;color:var(--ok);font-size:14px}.show .key{display:block}
+.a{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:8px 0;break-inside:avoid}
+.a b{color:var(--ac)}.a ul{margin:4px 0 0 18px;padding:0}
+.nm{border-bottom:1px solid var(--mut);display:inline-block;min-width:160px}
+@media(max-width:560px){.o{grid-template-columns:1fr}}
+@media print{.bar{display:none}body{font-size:13px}h2{background:none;color:#000;border:1px solid #000}}
+</style></head><body><div class="w" id="app">
+<h1>Python Test – 100 Marks</h1>
+<div class="meta"><span>Name: <span class="nm"></span></span><span>Roll No: <span class="nm" style="min-width:70px"></span></span><span>Date: <span class="nm" style="min-width:90px"></span></span></div>
+<div class="meta"><span>Section A: 100 MCQs × 1 mark = 100</span><span>Section B: 10 practical assignments × 10 marks = 100 (practical round)</span></div>
+<div class="bar"><button onclick="window.print()">Print</button></div>
+<div id="mcq"></div><h2>Section B – Practical Assignments (10 marks each)</h2><div id="asg"></div>
+</div>
+<script>
+var T=[
+["1. Basic Data Types",[
+["Which is NOT a Python data type?",["int","float","char","str"],2],
+["Output of type(5/2)?",["int","float","double","str"],1],
+["Output of 7//2 ?",["3.5","3","4","2"],1],
+["Output of 2**3 ?",["6","8","5","9"],1],
+["Output of 10%3 ?",["3","1","0","10"],1],
+["Which is a valid boolean value?",["true","True","'True'","TRUE"],1],
+["Output of int('25')+5 ?",["255","30","'30'","Error"],1],
+["Output of 'Hi'*2 ?",["HiHi","Hi2","Error","Hi Hi"],0],
+["Output of len('Python') ?",["5","6","7","Error"],1],
+["Which of these is immutable?",["list","dict","str","set"],2]]],
+["2. List",[
+["How do you create an empty list?",["l = ()","l = []","l = {}","l = <>"],1],
+["l=[10,20,30]; l[-1] = ?",["10","20","30","Error"],2],
+["Which method adds an item at the end?",["add()","append()","insert_end()","push()"],1],
+["l=[1,2,3,4]; l[1:3] = ?",["[1,2]","[2,3]","[2,3,4]","[1,2,3]"],1],
+["Which method removes an item by value?",["remove()","pop()","cut()","delete()"],0],
+["l=[3,1,2]; l.sort(); l = ?",["[3,1,2]","[1,2,3]","[3,2,1]","None"],1],
+["len([1,[2,3],4]) = ?",["3","4","2","Error"],0],
+["l=[1,2,3]; l.pop() returns?",["1","2","3","None"],2],
+["Output of [1,2]+[3] ?",["[1,2,3]","[4,5]","Error","[1,2,[3]]"],0],
+["Which method inserts at a given index?",["append()","insert()","extend()","add()"],1]]],
+["3. Tuple",[
+["Correct tuple with a single element?",["(5)","(5,)","[5,]","{5}"],1],
+["Tuples are ___",["mutable","immutable","unordered","unique only"],1],
+["t=(1,2,3); t[0]=9 gives?",["(9,2,3)","TypeError","None","(1,2,3)"],1],
+["t=(1,2,2,3); t.count(2) = ?",["1","2","3","0"],1],
+["t=(10,20,30); t[1] = ?",["10","20","30","Error"],1],
+["Which method does a tuple have?",["append()","index()","sort()","remove()"],1],
+["a,b = (1,2) is called ___",["Slicing","Tuple unpacking","Casting","Looping"],1],
+["len((1,2,3,4)) = ?",["3","4","5","Error"],1],
+["Convert list l into tuple:",["tuple(l)","list(l)","set(l)","l.tuple()"],0],
+["Why are tuples faster than lists?",["They are immutable","They are sorted","They hold only numbers","They use {}"],0]]],
+["4. Set",[
+["How do you create an empty set?",["{}","set()","[]","()"],1],
+["A set stores ___",["Duplicate values","Unique values","Key-value pairs","Only strings"],1],
+["len({1,2,2,3}) = ?",["4","3","2","Error"],1],
+["Which method adds an element to a set?",["append()","add()","insert()","push()"],1],
+["{1,2} | {2,3} = ?",["{2}","{1,2,3}","{1,3}","Error"],1],
+["{1,2,3} & {2,3,4} = ?",["{2,3}","{1,4}","{1,2,3,4}","{}"],0],
+["{1,2,3} - {2} = ?",["{2}","{1,3}","{1,2,3}","{3}"],1],
+["Does a set support indexing s[0]?",["Yes","No","Only numbers","Only strings"],1],
+["Remove duplicates from list l:",["set(l)","l.unique()","tuple(l)","l.dedupe()"],0],
+["Which method gives no error if item is missing?",["remove()","discard()","pop(5)","del"],1]]],
+["5. Dictionary",[
+["A dictionary stores data as ___",["index-value","key-value","value-only","row-column"],1],
+["d={'a':1}; d['a'] = ?",["a","1","Error","None"],1],
+["Which gets a value without KeyError?",["d.get(k)","d[k]","d.find(k)","d.fetch(k)"],0],
+["Dictionary keys must be ___",["mutable","immutable","lists","duplicate"],1],
+["d.keys() returns?",["values","keys","items","length"],1],
+["How to add a new pair?",["d['x']=5","d.add('x',5)","d.append('x',5)","d+('x',5)"],0],
+["d={'a':1,'b':2}; len(d) = ?",["1","2","3","4"],1],
+["Which gives (key, value) pairs?",["d.items()","d.pairs()","d.all()","d.both()"],0],
+["Remove key 'a':",["d.pop('a')","d.remove('a')","d.cut('a')","d.drop('a')"],0],
+["Duplicate keys in a dict: the ___",["last value is kept","first value is kept","error is raised","both are stored"],0]]],
+["6. If – Else",[
+["Keyword for 'else if'?",["elseif","elif","else if","elsif"],1],
+["Which symbol ends an if line?",[";",":","{","."],1],
+["Output of 5 == 5.0 ?",["True","False","Error","None"],0],
+["x=10; x>5 and x<20 → ?",["True","False","Error","None"],0],
+["Operator for 'not equal'?",["<>","!=","=!","not="],1],
+["What defines a block in Python?",["{ }","Indentation","( )","begin-end"],1],
+["Output of not True ?",["True","False","0","Error"],1],
+["x=0; if x: print('A') else: print('B') prints?",["A","B","Error","Nothing"],1],
+["Output of 'a' in 'cat' ?",["True","False","Error","None"],0],
+["Which is a comparison operator?",["=","==","+=","->"],1]]],
+["7. Loops",[
+["range(3) gives?",["1,2,3","0,1,2","0,1,2,3","1,2"],1],
+["range(1,10,3) gives?",["1,4,7","1,4,7,10","3,6,9","1,3,5"],0],
+["Which statement stops the loop completely?",["continue","break","pass","stop"],1],
+["Which statement skips the current iteration?",["break","continue","skip","exit"],1],
+["Loop best when count is known?",["for","while","do-while","repeat"],0],
+["for i in range(5): runs how many times?",["4","5","6","0"],1],
+["Which is an infinite loop?",["while True:","for i in range(0):","while False:","for i in []:"],0],
+["The pass statement ___",["exits the loop","does nothing","skips iteration","raises error"],1],
+["for c in 'abc': runs ___ times",["1","2","3","4"],2],
+["Loop's else block runs when ___",["break happens","loop ends normally","never","error occurs"],1]]],
+["8. Functions",[
+["Keyword to define a function?",["function","def","fun","define"],1],
+["Which keyword returns a value?",["print","return","out","give"],1],
+["A function without return gives ___",["0","None","Error","''"],1],
+["def f(a,b=2): calling f(1) → b is?",["1","2","None","Error"],1],
+["*args collects ___",["keyword args","positional args as tuple","a dict","a set"],1],
+["**kwargs collects ___",["keyword args as dict","positional as tuple","a set","a string"],0],
+["Anonymous function is made with ___",["def","lambda","anon","fn"],1],
+["(lambda x: x*2)(5) = ?",["10","7","25","Error"],0],
+["A variable defined inside a function is ___",["global","local","built-in","constant"],1],
+["def f(): return 1,2 → f() gives?",["(1, 2)","1","[1,2]","Error"],0]]],
+["9. Class and Object",[
+["Keyword to create a class?",["class","def","object","new"],0],
+["Name of the constructor method?",["__init__","__new_obj__","init","constructor"],0],
+["First parameter of an instance method?",["this","self","me","obj"],1],
+["An object is a(n) ___ of a class",["blueprint","instance","method","module"],1],
+["Create an object of class Car:",["c = Car()","c = new Car()","c = Car.new","c = create Car"],0],
+["Variables set with self in __init__ are ___",["class variables","instance variables","global","local only"],1],
+["How to access attribute name of obj?",["obj.name","obj->name","obj::name","obj[name]"],0],
+["A class is ___",["a blueprint for objects","a loop","a number type","a module file"],0],
+["__str__ method is used to ___",["delete object","define printable text","create class","import module"],1],
+["How many objects can one class have?",["Only one","Many","Two","None"],1]]],
+["10. Modules, Packages and Libraries",[
+["A module is ___",["a .py file with code","a folder only","a loop","a data type"],0],
+["Keyword to use a module?",["include","import","using","require"],1],
+["import math; math.sqrt(16) = ?",["4.0","4","16","Error"],0],
+["After 'from math import pi', use ___",["math.pi","pi","import pi","math(pi)"],1],
+["A package is a folder usually containing ___",["__init__.py","main.exe","a.txt","setup only"],0],
+["Rename a module on import:",["import math as m","import math to m","import m=math","rename math m"],0],
+["Built-in library for random numbers?",["random","rand_lib","numbers","chance"],0],
+["External libraries are installed using ___",["pip install","python get","import install","npm install"],0],
+["Which library is used for data analysis?",["pandas","turtle","os","math"],0],
+["User module file my.py is imported as ___",["import my","import my.py","include my","load my"],0]]]
+];
+var A=[
+["Data Types","Take name, age and height from user. Print them in one sentence using an f-string and print the type() of each."],
+["List","Make a list of 5 marks. Print sum, average, maximum, minimum, then the list sorted in descending order."],
+["Tuple","Make a tuple of 5 city names. Print first, last and count of one city; convert to list, add a city, convert back to tuple."],
+["Set","Two sets: students of Python class and Java class. Print students in both, only in Python, and in either class."],
+["Dictionary","Create dict with name, roll, marks. Add 'city', update marks, then print keys, values and items using a loop."],
+["If – Else","Take marks as input and print grade: 75+ = A, 60+ = B, 40+ = C, else Fail. Also check if the number is even or odd."],
+["Loops","Print multiplication table of a number n, sum of 1 to 100 (while loop), and all even numbers from 1 to 50."],
+["Functions","Write is_even(n) returning True/False. Write calculator(a, b, op) for + - * / using return, with a default op."],
+["Class and Object","Create class Student (name, marks) with display() and is_pass() (marks ≥ 40). Create 2 objects and call both methods."],
+["Modules and Packages","Create mymath.py with square() and cube(); import and use it. Make a package utils (with __init__.py) and use math and random libraries."]
+];
+function e(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+var h="",n=0,L="ABCD";
+T.forEach(function(t){h+="<h2>"+e(t[0])+" ("+t[1].length+" marks)</h2>";
+t[1].forEach(function(q){n++;
+h+='<div class="q"><b>Q'+n+'.</b> '+e(q[0])+'<div class="o">'+q[1].map(function(o,i){return '<span>('+L[i]+') '+e(o)+'</span>'}).join("")+'</div></div>'});
+});
+document.getElementById("mcq").innerHTML='<h2 style="margin-top:12px">Section A – MCQs (1 mark each)</h2>'+h;
+document.getElementById("asg").innerHTML=A.map(function(a,i){return '<div class="a"><b>Assignment '+(i+1)+': '+a[0]+'</b> <span style="float:right">[10]</span><div>'+e(a[1])+'</div></div>'}).join("");
+</script></body></html>
